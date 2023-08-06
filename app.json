@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "personal_finance",
+    "slug": "personal_finance",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "personal_finance"
+}
