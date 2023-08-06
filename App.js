@@ -1,18 +1,15 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { StatusBar } from 'react-native';
 
-import { Container, Titulo, Nome, BotaoSujeito, BotaoText } from './src/styles';
+import { NavigationContainer } from '@react-navigation/native';
 
-export default function App() {
- return (
-   <Container>
-     <Titulo cor="#FF0000" >Sujeito Programador</Titulo>
-     <Nome>Olá Pedro!</Nome>
+import Routes from './src/routes/index';
 
-     <BotaoSujeito onPress={ () => alert('CLICOU!') }>
-       <BotaoText>Entrar</BotaoText>
-     </BotaoSujeito>
-
-   </Container>
-  );
+export default function App(){
+  return(
+    <NavigationContainer>
+      <StatusBar backgroundColor="#F0F4FF" barStyle="dark-content" />
+      <Routes/>
+    </NavigationContainer>
+  )
 }
