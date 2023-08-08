@@ -58,7 +58,23 @@ export default function Home(){
 
     return () => isActive = false;
 
-  }, [isFocused])
+  }, [isFocused, dateMovements])
+
+
+  async function handleDelete(id){
+    try{
+      await api.delete('/receives/delete', {
+        params:{
+          item_id: id
+        }
+      })
+
+      setDateMovements(new Date())
+    }catch(err){
+      console.log(err);
+    }
+  }
+
 
   return(
     <Background>
@@ -82,7 +98,7 @@ export default function Home(){
       <List
         data={movements}
         keyExtractor={ item => item.id }
-        renderItem={ ({ item }) => <HistoricoList data={item} />  }
+        renderItem={ ({ item }) => <HistoricoList data={item} deleteItem={handleDelete} />  }
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ paddingBottom: 20 }}
       />
